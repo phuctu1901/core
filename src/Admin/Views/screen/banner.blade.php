@@ -63,7 +63,47 @@
                                         @endif
                                 </div>
                             </div>
+                            @if(isset($banner['type']))
+                            @if($banner['type']=='banner')
+                            <div class="form-group  row {{ $errors->has('title') ? ' text-red' : '' }}">
+                                <label for="url" class="col-sm-2 col-form-label">Tiêu đề</label>
+                                <div class="col-sm-8">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-pencil-alt"></i></span>
+                                            </div>
+                                        </div>
+                                        <input type="text" id="title" name="title" value="{{ old()?old('url'):$banner['title']??'' }}" class="form-control" placeholder="" />
+                                    </div>
+                                    @if ($errors->has('url'))
+                                        <span class="form-text">
+                                                <i class="fa fa-info-circle"></i> {{ $errors->first('title') }}
+                                            </span>
+                                    @endif
+                                </div>
+                            </div>
 
+                            <div class="form-group  row {{ $errors->has('desc') ? ' text-red' : '' }}">
+                                <label for="url" class="col-sm-2 col-form-label">Mô tả</label>
+                                <div class="col-sm-8">
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="fas fa-pencil-alt"></i></span>
+                                            </div>
+                                        </div>
+                                        <input type="text" id="desc" name="desc" value="{{ old()?old('url'):$banner['desc']??'' }}" class="form-control" placeholder="" />
+                                    </div>
+                                    @if ($errors->has('desc'))
+                                        <span class="form-text">
+                                                <i class="fa fa-info-circle"></i> {{ $errors->first('desc') }}
+                                            </span>
+                                    @endif
+                                </div>
+                            </div>
+                            @endif
+                            @endif
 
                             <div class="form-group row {{ $errors->has('target') ? ' text-red' : '' }}">
                                     <label for="target" class="col-sm-2 col-form-label">{{ trans('banner.admin.select_target') }}</label>

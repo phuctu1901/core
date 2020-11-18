@@ -86,13 +86,13 @@ class ShopProductController extends RootFrontController
                 ->setLimit(sc_config('product_relation', $storeId))
                 ->setRandom()
                 ->getData();
-
             sc_check_view($this->templatePath . '.screen.shop_product_detail');
             return view($this->templatePath . '.screen.shop_product_detail',
                 array(
                     'title' => $product->name,
                     'description' => $product->description,
                     'keyword' => $product->keyword,
+                    'thumb' => $product->image,
                     'product' => $product,
                     'productRelation' => $productRelation,
                     'goToStore' => $product->goToStore(),

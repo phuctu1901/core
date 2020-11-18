@@ -216,7 +216,9 @@ class AdminBannerController extends RootAdminController
         $dataUpdate = [
             'image'    => $data['image'],
             'url'      => $data['url'],
-            'html'     => $data['html'],
+            'title'      => $data['title'] ?? '',
+            'desc'      => $data['desc'] ?? '',
+            'html'     => $data['html'] ,
             'type'     => $data['type'] ?? 0,
             'target'   => $data['target'],
             'status'   => empty($data['status']) ? 0 : 1,

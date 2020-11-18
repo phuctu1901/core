@@ -284,6 +284,23 @@ $(document).ready(function() {
   });
 //End logo
 
+  //Logo
+  $('.thumb').change(function() {
+      $.ajax({
+          url: '{{ sc_route('admin_store.update') }}',
+          type: 'POST',
+          dataType: 'JSON',
+          data: {"name": $(this).attr('name'),"value":$(this).val(),"_token": "{{ csrf_token() }}", "storeId": "{{ $storeId }}" },
+      })
+          .done(function(data) {
+              if(data.error == 0){
+                  alertJs('success', '{{ trans('admin.msg_change_success') }}');
+              } else {
+                  alertJs('error', data.msg);
+              }
+          });
+  });
+  //End logo
 
   function deleteItem(id){
   Swal.mixin({

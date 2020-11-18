@@ -88,11 +88,7 @@ class LoginController extends RootFrontController
 
     protected function authenticated(Request $request, $user)
     {
-        if (auth()->user()) {
-            session(['customer' => auth()->user()->toJson()]);
-        } else {
-            session(['customer' => []]);
-        }
+        session(['customer' => auth()->user()]);
     }
 
 }

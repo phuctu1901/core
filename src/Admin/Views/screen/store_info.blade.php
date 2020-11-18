@@ -52,6 +52,19 @@
                             </a>
                       </td>
                     </tr>
+
+                    <tr>
+                        <td>Ảnh đại diện</td>
+                        <td>
+                            <div class="input-group">
+                                <input type="hidden" id="thumb" name="thumb" value="{{ $store->thumb }}" class="form-control input-sm logo" placeholder=""  />
+                            </div>
+                            <div id="thumb_preview_image" class="img_holder">{!! sc_image_render($store->thumb,'100px', '', 'Thumb') !!}</div>
+                            <a data-input="thumb" data-preview="thumb_preview_image" data-type="thumb" class="lfm pointer">
+                                <i class="fa fa-image"></i> {{trans('product.admin.choose_image')}}
+                            </a>
+                        </td>
+                    </tr>
               
                     <tr>
                       <td><i class="fas fa-phone-alt"></i> {{ trans('store.phone') }}</td>
